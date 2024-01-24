@@ -1,0 +1,98 @@
+@rootUrl = http://localhost:8000/api/v1
+@userApi = {{rootUrl}}/users
+@categoryAPI = {{rootUrl}}/categories
+
+@productApi ={{rootUrl}}/products
+
+# =========== user api 
+### login user
+POST {{userApi}}/signin
+Content-Type: application/json
+
+{
+    "email": "s@sami.com",
+    "password": "1aAaaa"
+}
+
+
+### get user profile
+GET {{userApi}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDUyODAyODIsImV4cCI6MTcwNTI4MTE4Mn0.1S0h7UC3jGTizdC04BljPiLEsaQTU0Eg2L6gU7QfDCs
+ 
+
+### request otp
+POST {{userApi}}/request-otp
+Content-Type: application/json
+
+{
+    "email": "a@a.com"
+}
+ 
+
+### update password
+PATCH  {{userApi}}/password
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDUzNzE1NzQsImV4cCI6MTcwNTM3MjQ3NH0._v9CTYXU-M8715rZzg9HOWOp2F1I44w4WBH0lr8Ao6A
+Content-Type: application/json
+
+{
+    "oldPassword" : "aA12345",
+     "newPassword" : "aA123451"
+}
+ 
+
+# ============ category
+
+
+###C
+POST  {{categoryAPI}}
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDUzNzczNzIsImV4cCI6MTcwNTM3ODI3Mn0.FomgHj2yLMAQINagLe0eavBHCeTWZkP_rPFWj0DRjdg
+
+{
+    "title": "Mobile phones"
+}
+
+###R
+GET  {{categoryAPI}}
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDUzNzk5NDcsImV4cCI6MTcwNTM4MDg0N30.kfDLY0FMqtw76Ysb90aCXn2X1z8Zu3fRt2kd584HF-E
+
+
+
+###U
+PUT  {{categoryAPI}}
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDUzNzg2MzYsImV4cCI6MTcwNTM3OTUzNn0.wrMokNcnpa0qLKbQA1Jv4lFrswG12OzgD3n2m12dGsM
+
+{
+    "_id": "65a60142295e267ade651665",
+    "title": "Machine",
+    "status": "active"
+}
+
+
+###D
+DELETE   {{categoryAPI}}/65a60142295e267ade651665
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MDUzNzg2MzYsImV4cCI6MTcwNTM3OTUzNn0.wrMokNcnpa0qLKbQA1Jv4lFrswG12OzgD3n2m12dGsM
+
+
+# ===========product
+
+###C
+POST {{productApi}}
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNAc2FtaS5jb20iLCJpYXQiOjE3MDU4ODExNTksImV4cCI6MTcwNTg4MjA1OX0.C-Xv2YThKEWRYCgy3TNxlWgpTc_34U3MFBE4cUHP4tA
+
+{
+     "name": "Iphone 15 pro",
+    "parentCatId": "65ada9fc811de3403c836a40",
+    "sku": "MAC-15-PRO",
+    "price": "2500",
+    "quantity": "1",
+    "salesPrice": "2600",
+    "description": "Iphone 15"
+   
+}
+
+
+
+
